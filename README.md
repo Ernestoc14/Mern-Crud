@@ -19,14 +19,21 @@ globally in our application, as well as modules like axios and tailwind CSS.
 
 # Main Modules
 Express: Allow us to create routs from frontend requests.
+
 Express-fileupload: To upload files.
+
 Mongoose: Allow us to conect to MongoDB and create tables. (Must instal MongoDB first). 
+
 
 # Secundaries Modules
 Dotenv: Loads environment variables from .env file.
+
 Fs-extra: Allow file manipulation.
+
 Http-errors: Allow us to create and send custom error messages.
+
 Morgan: To see in console the requests we made.
+
 Cloudinary: Allow us to upload images.
 
 ## License
