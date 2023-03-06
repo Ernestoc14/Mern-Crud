@@ -15,9 +15,9 @@ globally in our application, as well as modules like axios and tailwind CSS.
 - [React.js](https://reactjs.org/) - A free and open-source front-end JavaScript Library for building user interfaces.
 - [Node.js](https://nodejs.org/en/about/) - A cross-platform, open-source server environment that can run on differents OS.
 
-## Project structure
+# Project structure
 
-# Main Modules
+## Main Modules
 Express: Allow us to create routs from frontend requests.
 
 Express-fileupload: To upload files.
@@ -25,7 +25,7 @@ Express-fileupload: To upload files.
 Mongoose: Allow us to conect to MongoDB and create tables. (Must instal MongoDB first). 
 
 
-# Secundaries Modules
+## Secundaries Modules
 Dotenv: Loads environment variables from .env file.
 
 Fs-extra: Allow file manipulation.
