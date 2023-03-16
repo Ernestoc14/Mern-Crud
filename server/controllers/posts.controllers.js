@@ -8,7 +8,7 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
     const {title, description} = req.body
     const newPost = new Post({title, description})
-    
+    await newPost.save()
     return res.json(newPost)
 }
 
