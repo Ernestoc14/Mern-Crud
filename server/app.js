@@ -1,8 +1,12 @@
 import express from "express";
-import postRoutes from "./routes/posts.routes.js";
+import postsRoutes from "./routes/posts.routes.js";
 
 const app = express()
 
-app.use(postRoutes)
+//middlewares
+app.use(express.json())
+
+//routes
+app.use(postsRoutes)
 
 export default app

@@ -1,7 +1,16 @@
+import Post from "../models/Post.js"
 
-export const getPosts = (req, res) => res.send([])
+export const getPosts = async (req, res) => {
+    const posts = await Post.find()
+    res.send(posts)
+}
 
-export const createPost = (req, res) => res.send ('new post created')
+export const createPost = async (req, res) => {
+    const {title, description} = req.body
+    const newPost = new Post({title, description})
+    
+    return res.json(newPost)
+}
 
 export const updatePost = (req, res) => res.send('updating a post')
 
