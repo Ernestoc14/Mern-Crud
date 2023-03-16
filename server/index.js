@@ -6,3 +6,4 @@ connectDB()
 
 app.listen(PORT)
 console.log('Server is running in port', PORT)
+// Need to run mongod.exe
