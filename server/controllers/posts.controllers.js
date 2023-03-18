@@ -25,6 +25,8 @@ export const deletePost = async (req, res) => {
     return res.sendStatus(204)
 }
 
-export const getPost = (req, res) => {
-    
+export const getPost = async (req, res) => {
+    const postFound = await Post.findById(req.params.id)
+    if(!postFound) return res.sendStatus(404)
+    return res.json(postFound)
 }
