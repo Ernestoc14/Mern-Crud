@@ -18,6 +18,13 @@ export const updatePost = async (req, res) => {
     return res.send('received')
 }
 
-export const deletePost = (req, res) => res.send('deleting a post')
+export const deletePost = async (req, res) => {
+    const postRemoved = await Post.findOneAndDelete(req.params.id)
+    if(!postRemoved) return res.sendStatus(404)
 
-export const getPost = (req, res) => res.send('getting a post')
+    return res.sendStatus(204)
+}
+
+export const getPost = (req, res) => {
+    
+}
