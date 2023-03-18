@@ -12,7 +12,11 @@ export const createPost = async (req, res) => {
     return res.json(newPost)
 }
 
-export const updatePost = (req, res) => res.send('updating a post')
+export const updatePost = async (req, res) => {
+    const post = await Post.findByIdAndUpdate(req.params.id , req.body, {new: true})
+    console.log(post)
+    return res.send('received')
+}
 
 export const deletePost = (req, res) => res.send('deleting a post')
 
