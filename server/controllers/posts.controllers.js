@@ -12,6 +12,9 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
     try {
         const {title, description} = req.body
+        if(req.files.image){
+            
+        }
         const newPost = new Post({title, description})
 
         await newPost.save()
