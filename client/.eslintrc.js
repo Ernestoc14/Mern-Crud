@@ -7,7 +7,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'standard'
+    'standard',
+    'eslint-config-prettier'
   ],
   overrides: [
   ],
