@@ -4,6 +4,11 @@ module.exports = {
     es2021: true,
     node: true
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
@@ -13,18 +18,15 @@ module.exports = {
   overrides: [
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 12,
     sourceType: 'module'
   },
   plugins: [
-    'react',
-    'react/jsx-runtime'
+    'react'
   ],
   rules: {
-  },
-  settings: {
-    react: {
-      version: 'detect'
-    }
   }
 }
