@@ -1,3 +1,3 @@
-export { HomePage } from './pages/HomePage'
-export { PostForm } from './pages/PostForm'
-export { NotFoundPage } from './pages/NotFoundPage'
+export { HomePage} from './HomePage'
+export { PostForm } from './PostForm'
+export { NotFoundPage } from './NotFoundPage'

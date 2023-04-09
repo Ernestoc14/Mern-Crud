@@ -1,3 +1,7 @@
-export default function PostForm () {
-  return <div>PostForm</div>
+export function PostForm() {
+    return (
+        <div>
+        <h1>PostForm</h1>
+        </div>
+    )
 }
