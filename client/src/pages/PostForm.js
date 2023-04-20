@@ -1,7 +1,7 @@
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { usePosts } from '../context/postContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export function PostForm() {
     const { createPost } = usePosts()
@@ -35,7 +35,8 @@ export function PostForm() {
                         />
                         <ErrorMessage component='p' className='text-red-100 text-sm' name='description'/>
                         
-                        <button type='submit'className='bg-green-600 px-2 mt-7 rounded-md text-lg'>Save</button>
+                        <button type='submit'className='bg-teal-500 px-2 py-1 mt-7 rounded-md text-lg'>Save</button>
+                        <Link to="/" className='bg-teal-500 px-2 py-1.5 rounded-md text-lg ml-10'>See All Posts</Link>
                     </Form>
                 )}
             </Formik>
