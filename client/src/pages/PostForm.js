@@ -24,17 +24,18 @@ export function PostForm() {
             >
                 {({handleSubmit}) => (
                     <Form onSubmit={handleSubmit}>
+                        <h1 className='text-white text-4xl mb-8 justify-center flex'>Creating a New Post</h1>
                         <Field name='title' placeholder='title' 
                             className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full'
                         />
                         <ErrorMessage component='p' className='text-red-100 text-sm' name='title' />
                         
                         <Field name='description' placeholder='description' 
-                            className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full'
+                            className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full mt-5'
                         />
                         <ErrorMessage component='p' className='text-red-100 text-sm' name='description'/>
                         
-                        <button type='submit'>Save</button>
+                        <button type='submit'className='bg-green-600 px-2 mt-7 rounded-md text-lg'>Save</button>
                     </Form>
                 )}
             </Formik>
