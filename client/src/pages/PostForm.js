@@ -6,7 +6,7 @@ import { useEffect, useState} from 'react';
 
 export function PostForm() {
 
-    const { createPost, getPost} = usePosts()
+    const { createPost, getPost, updatePost } = usePosts()
 
     const navigate = useNavigate()
 
@@ -18,13 +18,13 @@ export function PostForm() {
     })
     
     useEffect(() => {
-        (async () =>{
+        (async() => {
             if(params.id) {
                 const post = await getPost(params.id)
                 setPost(post)
             }
         })()
-    }, [])
+    }, [params.id])
 
     return (
         <div className='flex items-center justify-center'>
@@ -36,31 +36,37 @@ export function PostForm() {
                     description: Yup.string().required('The description is Required')
                 })}
                 onSubmit={ async (values, actions) => {
-                    await createPost(values)
+                    if(params.id) {
+                        await updatePost(params.id, values)
+                    }
+                    else {
+                        await createPost(values)
+                    }
+
                     navigate('/')
                 }}
-                enableReinitialize = {true}
+                enableReinitialize
             >
                 {({handleSubmit}) => (
                     <Form onSubmit={handleSubmit}>
                         <h1 className='text-white text-4xl mb-8 justify-center flex'>Creating a New Post</h1>
-                        <lable 
+                        <label 
                             htmlFor= 'title' 
                             className='text-sm block font-bold text-gray-400'
                         >
                             Title
-                        </lable>
+                        </label>
                         <Field name='title' placeholder='title' 
                             className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full mb-7'
                         />
                         <ErrorMessage component='p' className='text-red-100 text-sm' name='title' />
                         
-                        <lable 
+                        <label 
                             htmlFor= 'description' 
                             className='text-sm block font-bold text-gray-400'
                         >
                             Description
-                        </lable>
+                        </label>
                         <Field 
                             component='textarea'
                             name='description' placeholder='description' 

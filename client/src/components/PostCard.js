@@ -8,14 +8,14 @@ export function PostCard({ post }) {
 
     const navigate = useNavigate()
 
-    const handleDelete = (_id) => {
+    const handleDelete = (id) => {
         toast((t) => ( 
             <div>
-                <p className="text-white"> Do you want to delete the post? <strong>{_id}</strong></p>
+                <p className="text-white"> Do you want to delete the post? <strong>{id}</strong></p>
                 <div>
                     <button className="bg-red-500 hover:bg-red-400 px-3 py-2 text-white rounded-sm mx-2" 
                         onClick={() => {
-                            deletePost(_id)
+                            deletePost(id)
                             toast.dismiss(t.id)
                         }}
                         >

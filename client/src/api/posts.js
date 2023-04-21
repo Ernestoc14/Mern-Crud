@@ -7,3 +7,5 @@ export const createPostRequests = async (post) => await axios.post('/posts', pos
 export const deletePostRequests = async (id) => await axios.delete(`/posts/${id}`)
 
 export const getPostRequests = async (id) => await axios.get(`/posts/${id}`)
+
+export const updatePostRequests = async (id, newFields) => await axios.put(`/posts/${id}`, newFields)
