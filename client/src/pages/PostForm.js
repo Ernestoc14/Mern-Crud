@@ -30,7 +30,7 @@ export function PostForm() {
         <div className='flex items-center justify-center'>
             <div className='bg-zinc-800 p-10 shadow-md shadow-black'>
             <Formik 
-                initialValues={{post}}
+                initialValues={post}
                 validationSchema={Yup.object({
                     title: Yup.string().required('The title is Required'),
                     description: Yup.string().required('The description is Required')
