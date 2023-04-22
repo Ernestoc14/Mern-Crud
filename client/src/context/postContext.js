@@ -35,7 +35,7 @@ export const PostProvider = ({ children }) => {
 
 	const updatePost = async(id, post) => {
 		const res = await updatePostRequests(id, post)
-		console.log(res)
+		setPosts(posts.map(post => post._id === id ? res.data : post))
 	}
 
 	useEffect(() => {
