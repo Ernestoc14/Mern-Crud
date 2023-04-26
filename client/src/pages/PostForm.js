@@ -1,8 +1,9 @@
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { usePosts } from '../context/postContext';
-import { Link, useNavigate, useParams} from 'react-router-dom';
-import { useEffect, useState} from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 export function PostForm() {
 
@@ -14,7 +15,8 @@ export function PostForm() {
 
     const [post, setPost] = useState({
         title: '',
-        description: ''
+        description: '',
+        // image: null
     })
     
     useEffect(() => {
@@ -43,11 +45,12 @@ export function PostForm() {
                         await createPost(values)
                     }
 
+                    actions.setSubmitting(false)
                     navigate('/')
                 }}
                 enableReinitialize
             >
-                {({handleSubmit}) => (
+                {({ handleSubmit, setFieldValue, isSubmitting}) => (
                     <Form onSubmit={handleSubmit}>
                         <h1 className='text-white text-4xl mb-8 justify-center flex'>Creating a New Post</h1>
                         <label 
@@ -56,10 +59,12 @@ export function PostForm() {
                         >
                             Title
                         </label>
+
+                        <ErrorMessage component='p' className='text-red-400 text-sm' name='title' />
+
                         <Field name='title' placeholder='title' 
                             className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full mb-7'
                         />
-                        <ErrorMessage component='p' className='text-red-100 text-sm' name='title' />
                         
                         <label 
                             htmlFor= 'description' 
@@ -67,14 +72,33 @@ export function PostForm() {
                         >
                             Description
                         </label>
+
+                        <ErrorMessage component='p' className='text-red-400 text-sm' name='description'/>
+
                         <Field 
                             component='textarea'
                             name='description' placeholder='description' 
-                            className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full '
+                            className='px-3 py-2 focus:outline-none rounded bg-gray-700 text-white w-full mb-7'
                         />
-                        <ErrorMessage component='p' className='text-red-100 text-sm' name='description'/>
                         
-                        <button type='submit'className='bg-teal-500 px-2 py-1 mt-7 rounded-md text-lg'>Save</button>
+                        <label 
+                            htmlFor= 'image' 
+                            className='text-sm block font-bold text-gray-400'
+                        >
+                            Image
+                        </label>
+
+                        <input type='file' name='image' className='px-3 py-2 focus:outline-none rounded bg-gray-600 text-white w-full mb-7'
+                            onChange={(e) => setFieldValue('image', e.target.files[0])}
+                        />
+
+                        <button type='submit' className='bg-teal-500 px-2 py-1 rounded-md text-lg' 
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? (
+                                <AiOutlineLoading3Quarters className='animate-spin w-7 h-7'/>
+                            ) : 'Save'}
+                        </button>
                         <Link to="/" className='bg-teal-500 px-2 py-1.5 rounded-md text-lg ml-10'>See All Posts</Link>
                     </Form>
                 )}

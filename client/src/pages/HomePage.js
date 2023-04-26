@@ -19,13 +19,17 @@ export function HomePage() {
 
 	return (
 		<div className='text-white'>
-			<h1 className='text-4xl mb-8 justify-center flex'>Posts</h1>
-			<div className='grid place-content-center'>
-				<Link to='/new' className='bg-teal-500 text-black p-3 rounded-md mb-8'>
-					Create New Post
-				</Link>
-			</div>
-			<div className='grid grid-cols-3 gap-2'>
+			<header className='relative'>
+				<h1 className='text-4xl mb-8 justify-center flex'>Posts</h1>
+				<h3 className=' text-gray-300 text-xl absolute bottom-1 '>Posts({posts.length})</h3>
+				<div className='grid place-content-center mb-5'>
+					<Link to='/new' className='bg-teal-500 text-black p-3 rounded-md mb-8'>
+						Create New Post
+					</Link>
+				</div>
+			</header>
+
+			<div className='grid grid-cols-3 gap-4 '>
 				{posts.map((post) => (
 					<PostCard post={post} key={post._id} />
 				))}
