@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/Ernestoc14/Mern-Crud/issues"
   },
-  "homepage": "https://github.com/Ernestoc14/Mern-Crud#readme",
+  "homepage": ".",
   "dependencies": {
     "cloudinary": "^1.35.0",
     "dotenv": "^16.0.3",
