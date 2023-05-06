@@ -6,6 +6,6 @@ export async function connectDB() {
         const db = await mongoose.connect(MONGODB_URI)
         console.log('Connected to', db.connection.name)
     } catch (error){
-        console.error(error.response.data)
+        console.error(error)
     }
 }
